@@ -1,0 +1,18 @@
+{
+  "name": "git-release-helper",
+  "version": "1.0.0",
+  "description": "A script that helps pushing code by git, building bundles and releasing version on remote server.",
+  "main": "index.js",
+  "author": "Scrooge6792",
+  "license": "MIT",
+  "scripts": {
+    "i": "node lib/index.js"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "clear": "^0.1.0",
+    "inquirer": "^7.0.0",
+    "minimist": "^1.2.0",
+    "simple-git": "^1.126.0"
+  }
+}
