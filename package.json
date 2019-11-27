@@ -5,9 +5,6 @@
   "main": "index.js",
   "author": "Scrooge6792",
   "license": "MIT",
-  "scripts": {
-    "i": "node lib/index.js"
-  },
   "bin": {
     "grh": "./index.js"
   },
