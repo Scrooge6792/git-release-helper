@@ -8,6 +8,9 @@
   "scripts": {
     "i": "node lib/index.js"
   },
+  "bin": {
+    "grh": "./index.js"
+  },
   "dependencies": {
     "chalk": "^2.4.2",
     "clear": "^0.1.0",
