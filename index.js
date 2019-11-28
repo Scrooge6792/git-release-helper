@@ -15,7 +15,7 @@ if (argv.length > 1) {
       break
     case 'init':
       require('fs').copyFile(
-        path.resolve('./lib', 'default.json'),
+        path.resolve(__dirname, './lib/default.json'),
         path.resolve(process.cwd(), 'grhconfig.json'),
         (err) => {
           if (err) {
