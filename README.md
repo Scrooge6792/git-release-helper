@@ -61,6 +61,8 @@ $ cd myProject && grh init
 $ cd myProject && grh
 ```
 
+![示例图](https://github.com/Scrooge6792/git-release-helper/blob/dev/image/sketch.png)
+
 ## 维护者
 
 [@Scrooge6792](https://github.com/Scrooge6792).
