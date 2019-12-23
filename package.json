@@ -1,6 +1,6 @@
 {
   "name": "git-release-helper",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "A script that helps pushing code by git, building bundles and releasing version on remote server.",
   "main": "index.js",
   "author": "Scrooge6792",

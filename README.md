@@ -1,58 +1,72 @@
 # git-release-helper
 
-A script that helps pushing code by git, building bundles and releasing version on remote server.
+这是一个协助开发人员提交代码的脚本。
 
-## Features
+## 功能
 
-- Execute a series of git commands to repository automatically.
+- 自动执行一系列的git命令
+- 自动构建代码
+- 自动登录ssh服务器并发布版本
 
-## Background
+## 背景
 
-Tired of pushing code and releasing version to our development server with several manual operations, I have to try writing some scripts to help the releasing work to be easier.
+摆脱繁琐的手动发版步骤，我们可以利用脚本去帮助处理这些事情
 
-> So, if you have more complex requirements, you should try to set up a CI.
+> 如果有更为复杂详细的步骤，或者想要有更优的方案，可以采用持续集成（CI）
 
-## Install
+## 安装
+
+> 推荐安装到全局
+```sh
+$ npm install -g git-release-helper
+```
+
+## 使用说明
+
+###1. 创建配置文件生成`grhconfig.json`文件，然后修改内容
 
 ```sh
-$ npm install git-release-helper --save-dev
-```
-or
-```sh
-$ yarn add git-release-helper --dev
+$ cd myProject && grh init
 ```
 
-## Usage
-
-1. Create a JSON file outside your project. It's used for connecting SSH.
-
-```js
-// Example path: D:\\myKey.json
-```
 ```json
 {
-  "host": "127.0.0.1",
-  "username": "admin",
-  "password": "******"
+  "SSHConfigPath": "D:\\myProject\\ssh.json",
+  "outputPath": "/build"
 }
 ```
 
-2. Create a JSON file and change the info in `project\\grhconfig.json`.
+其中构建步骤会执行`npm run build`，`outputPath`对应webpack的output路径。
 
-```sh
-$ grh init
+`ssh.json`请单独存在项目外，内容如下
+
+```json
+{
+  "connectionOptions":  {
+    "host": "127.0.0.1",
+    "username": "admin",
+    "password": "admin"
+  },
+  "commands": {
+    "myProject": "cd /srv/app/myProject\ngit pull origin prod\nexit\n"
+  }
+}
 ```
 
-3. Push your code, build your project, ect.
+###2. 在`.gitignore`上添加`grhconfig.json`
+
+###3. 愉快地推代码
 
 ```sh
-$ grh
+$ cd myProject && grh
 ```
 
-## Maintainers
+![示例图](https://github.com/Scrooge6792/git-release-helper/blob/dev/image/sketch.png)
+
+## 维护者
 
 [@Scrooge6792](https://github.com/Scrooge6792).
 
-## Contributing
+## 如何贡献
 
-Feel free to dive in! [Open an issue](https://github.com/Scrooge6792/git-release-helper/issues/new) or submit PRs.
+非常欢迎你的加入！ [提一个Issue](https://github.com/Scrooge6792/git-release-helper/issues/new) 或者提交一个 Pull Request。
